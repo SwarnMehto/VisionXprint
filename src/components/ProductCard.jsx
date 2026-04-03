@@ -14,78 +14,31 @@ export default function ProductCard({ product }) {
     product.image || "https://via.placeholder.com/600x400?text=Product";
   const productPrice = product.price ?? 0;
   const productSlug = product.slug || "";
+  const productBadge = product.badge || "";
 
   return (
-    <div
-      className="card"
-      style={{
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        borderRadius: "26px",
-      }}
-    >
-      <img
-        src={productImage}
-        alt={productName}
-        style={{
-          width: "100%",
-          height: "240px",
-          objectFit: "cover",
-          borderRadius: "18px",
-          marginBottom: "18px",
-          background: "#f3f4f6",
-        }}
-      />
+    <div className="vx-product-card">
+      <div className="vx-product-image-wrap">
+        {productBadge && <span className="vx-product-badge">{productBadge}</span>}
+        <img src={productImage} alt={productName} className="vx-product-image" />
+      </div>
 
-      <p
-        style={{
-          color: "#6b7280",
-          fontWeight: "600",
-          marginBottom: "8px",
-          textTransform: "capitalize",
-          fontSize: "14px",
-        }}
-      >
-        {categoryText}
-      </p>
+      <div className="vx-product-content">
+        <p className="vx-product-category">{categoryText}</p>
+        <h3 className="vx-product-title">{productName}</h3>
+        <p className="vx-product-desc">{productDescription}</p>
 
-      <h3
-        style={{
-          margin: "0 0 10px",
-          fontSize: "22px",
-          color: "#111827",
-        }}
-      >
-        {productName}
-      </h3>
+        <div className="vx-product-footer">
+          <div>
+            <p className="vx-product-price-label">From</p>
+            <h4 className="vx-product-price">{formatCurrency(productPrice)}</h4>
+          </div>
 
-      <p
-        style={{
-          color: "#6b7280",
-          marginBottom: "16px",
-          lineHeight: "1.7",
-          flexGrow: 1,
-        }}
-      >
-        {productDescription}
-      </p>
-
-      <p
-        style={{
-          fontWeight: "700",
-          marginBottom: "16px",
-          color: "#111827",
-          fontSize: "18px",
-        }}
-      >
-        From {formatCurrency(productPrice)}
-      </p>
-
-      <Link to={`/product/${productSlug}`} className="btn btn-primary">
-        Customize product
-      </Link>
+          <Link to={`/product/${productSlug}`} className="btn btn-primary">
+            Customize
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

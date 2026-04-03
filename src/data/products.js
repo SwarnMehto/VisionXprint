@@ -6,6 +6,7 @@ const products = [
     category: "id-cards",
     image: "/products/id-card-1.jpg",
     price: 49,
+    badge: "Popular",
     description:
       "Premium PVC ID cards with front and back printing for offices, schools and events.",
     sizes: ["Standard"],
@@ -20,6 +21,7 @@ const products = [
     category: "lanyards",
     image: "/products/lanyard-1.jpg",
     price: 35,
+    badge: "Best Seller",
     description:
       "Custom branded lanyards with logo printing, multiple hook options and bulk quantity support.",
     sizes: ["15mm", "20mm", "25mm"],
@@ -34,6 +36,7 @@ const products = [
     category: "acrylic-keychains",
     image: "/products/acrylic-keychain-1.jpg",
     price: 59,
+    badge: "New",
     description:
       "Glossy acrylic keychains with custom shapes, vibrant colors and strong finish.",
     sizes: ["2 inch", "3 inch"],
@@ -48,6 +51,7 @@ const products = [
     category: "mugs",
     image: "/products/mug-1.jpg",
     price: 199,
+    badge: "Gift Pick",
     description:
       "Custom mugs for gifting, branding and promotional campaigns with sharp print quality.",
     sizes: ["11 oz"],
@@ -62,6 +66,7 @@ const products = [
     category: "visiting-cards",
     image: "/products/visiting-card-1.jpg",
     price: 299,
+    badge: "Premium",
     description:
       "Professional visiting cards with premium paper, matte finish and custom branding.",
     sizes: ["Standard"],

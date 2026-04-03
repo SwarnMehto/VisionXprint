@@ -9,11 +9,7 @@ export default function CategoryCard({ category }) {
     category.image || "https://via.placeholder.com/300x300?text=Category";
 
   return (
-    <Link
-      to={`/category/${categorySlug}`}
-      className="explore-item"
-      style={{ display: "block" }}
-    >
+    <Link to={`/category/${categorySlug}`} className="explore-item">
       <div className="explore-circle">
         <img src={categoryImage} alt={categoryName} />
       </div>

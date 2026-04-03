@@ -1,74 +1,19 @@
-const products = [
+const testimonials = [
   {
     id: 1,
-    name: "Custom ID Card",
-    slug: "custom-id-card",
-    category: "id-cards",
-    image: "/products/id-card-1.jpg",
-    price: 49,
-    description:
-      "Premium PVC ID cards with front and back printing for offices, schools and events.",
-    sizes: ["Standard"],
-    materials: ["PVC"],
-    printSides: ["Single Side", "Double Side"],
-    quantities: [10, 25, 50, 100, 250],
+    name: "Amit Sharma",
+    text: "Vision X Print delivered excellent ID cards and lanyards for our office team. The overall quality looked premium and professional.",
   },
   {
     id: 2,
-    name: "Printed Lanyard",
-    slug: "printed-lanyard",
-    category: "lanyards",
-    image: "/products/lanyard-1.jpg",
-    price: 35,
-    description:
-      "Custom branded lanyards with logo printing, multiple hook options and bulk quantity support.",
-    sizes: ["15mm", "20mm", "25mm"],
-    materials: ["Polyester"],
-    printSides: ["Single Side", "Double Side"],
-    quantities: [25, 50, 100, 250, 500],
+    name: "Neha Verma",
+    text: "We ordered acrylic keychains and custom mugs. The finish was clean, the print was sharp and the ordering process felt smooth.",
   },
   {
     id: 3,
-    name: "Acrylic Keychain",
-    slug: "acrylic-keychain",
-    category: "acrylic-keychains",
-    image: "/products/acrylic-keychain-1.jpg",
-    price: 59,
-    description:
-      "Glossy acrylic keychains with custom shapes, vibrant colors and strong finish.",
-    sizes: ["2 inch", "3 inch"],
-    materials: ["Acrylic"],
-    printSides: ["Single Side", "Double Side"],
-    quantities: [10, 25, 50, 100],
-  },
-  {
-    id: 4,
-    name: "Custom Mug",
-    slug: "custom-mug",
-    category: "mugs",
-    image: "/products/mug-1.jpg",
-    price: 199,
-    description:
-      "Custom mugs for gifting, branding and promotional campaigns with sharp print quality.",
-    sizes: ["11 oz"],
-    materials: ["Ceramic"],
-    printSides: ["Wrap Print"],
-    quantities: [1, 5, 10, 25, 50],
-  },
-  {
-    id: 5,
-    name: "Business Visiting Card",
-    slug: "business-visiting-card",
-    category: "visiting-cards",
-    image: "/products/visiting-card-1.jpg",
-    price: 299,
-    description:
-      "Professional visiting cards with premium paper, matte finish and custom branding.",
-    sizes: ["Standard"],
-    materials: ["300 GSM", "350 GSM"],
-    printSides: ["Single Side", "Double Side"],
-    quantities: [100, 250, 500, 1000],
+    name: "Rakesh Singh",
+    text: "Great support for bulk orders. The team handled our branding requirements properly and delivered a polished result.",
   },
 ];
 
-export default products;
+export default testimonials;

@@ -9,9 +9,9 @@ export default function Footer() {
             <h3 style={{ marginTop: 0, marginBottom: "14px", fontSize: "24px" }}>
               Vision X Print
             </h3>
-            <p style={{ color: "#d1d5db", lineHeight: "1.8" }}>
-              Premium custom print products for business identity, branding,
-              events and promotional merchandise.
+            <p style={{ color: "#5c7894", lineHeight: "1.8" }}>
+              Premium custom print products for business identity, branded merchandise,
+              events and gifting.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          © 2026 Vision X Print. Designed for premium custom print commerce.
+          © 2026 Vision X Print. Bright premium custom print storefront.
         </div>
       </div>
     </footer>

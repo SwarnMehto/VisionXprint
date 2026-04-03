@@ -5,6 +5,7 @@ export default function Contact() {
   return (
     <>
       <Navbar />
+
       <section className="page-hero">
         <div className="container">
           <h1>Contact Us</h1>
@@ -12,19 +13,23 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="page-content">
+      <section className="page-content vx-page-top-space">
         <div className="container">
-          <div className="grid grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-            <div className="card">
-              <h2 style={{ marginBottom: "12px" }}>Contact Details</h2>
-              <p style={{ lineHeight: 1.9, color: "#475569" }}>
-                Phone: +91 8700116436 <br />
-                Email: visionxmediasolution@gmail.com <br />
-                Brand: Vision X Print
+          <div className="vx-form-grid-2">
+            <div className="vx-info-card vx-contact-details">
+              <h2>Contact Details</h2>
+              <p>
+                <strong>Phone:</strong> +91 8700116436
+              </p>
+              <p>
+                <strong>Email:</strong> visionxmediasolution@gmail.com
+              </p>
+              <p>
+                <strong>Brand:</strong> Vision X Print
               </p>
             </div>
 
-            <form className="card">
+            <form className="vx-form-card">
               <div className="form-group">
                 <label>Name</label>
                 <input type="text" placeholder="Enter your name" />
@@ -47,6 +52,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
       <Footer />
     </>
   );

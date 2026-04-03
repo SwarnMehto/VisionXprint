@@ -18,11 +18,34 @@ export default function FAQSection() {
     <section className="section">
       <div className="container">
         <h2 className="section-title">Frequently Asked Questions</h2>
+        <p className="section-subtitle" style={{ marginBottom: "26px" }}>
+          Quick answers to the most common custom printing questions.
+        </p>
+
         <div className="grid">
           {faqs.map((item, index) => (
-            <div key={index} className="card">
-              <h3 style={{ marginBottom: "8px" }}>{item.q}</h3>
-              <p style={{ color: "#475569", lineHeight: 1.8 }}>{item.a}</p>
+            <div key={index} className="card faq-card">
+              <h3
+                style={{
+                  margin: "0 0 10px",
+                  color: "#16324f",
+                  fontSize: "18px",
+                  lineHeight: "1.5",
+                }}
+              >
+                {item.q}
+              </h3>
+
+              <p
+                style={{
+                  margin: 0,
+                  color: "#5c7894",
+                  lineHeight: "1.8",
+                  fontSize: "16px",
+                }}
+              >
+                {item.a}
+              </p>
             </div>
           ))}
         </div>
