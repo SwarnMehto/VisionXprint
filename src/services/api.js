@@ -1,11 +1,21 @@
-export function calculatePrice(basePrice, quantity) {
-  let total = basePrice * quantity;
+import axios from "axios";
 
-  if (quantity >= 100) {
-    total = total * 0.9;
-  } else if (quantity >= 50) {
-    total = total * 0.95;
+const API = axios.create({
+  baseURL: "http://localhost:5000/api",
+});
+
+API.interceptors.request.use((config) => {
+  const userInfo = localStorage.getItem("userInfo");
+
+  if (userInfo) {
+    const parsed = JSON.parse(userInfo);
+
+    if (parsed.token) {
+      config.headers.Authorization = `Bearer ${parsed.token}`;
+    }
   }
 
-  return Math.round(total);
-}
+  return config;
+});
+
+export default API;

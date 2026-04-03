@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const megaMenus = {
   all: {
@@ -261,14 +262,50 @@ function MegaMenu({ menuKey }) {
 }
 
 export default function Navbar() {
-  const cart = JSON.parse(localStorage.getItem("visionx_cart")) || [];
-  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  const navigate = useNavigate();
+
+  const [cartCount, setCartCount] = useState(0);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const updateNavbarState = () => {
+      const cart = JSON.parse(localStorage.getItem("visionx_cart")) || [];
+      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+      setCartCount(totalItems);
+
+      const storedUser = localStorage.getItem("visionx_user");
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      } else {
+        setUser(null);
+      }
+    };
+
+    updateNavbarState();
+
+    window.addEventListener("storage", updateNavbarState);
+    window.addEventListener("authChanged", updateNavbarState);
+    window.addEventListener("cartUpdated", updateNavbarState);
+
+    return () => {
+      window.removeEventListener("storage", updateNavbarState);
+      window.removeEventListener("authChanged", updateNavbarState);
+      window.removeEventListener("cartUpdated", updateNavbarState);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("visionx_user");
+    localStorage.removeItem("visionx_token");
+    window.dispatchEvent(new Event("authChanged"));
+    navigate("/login");
+  };
 
   return (
     <>
       <div className="top-strip">
         <div className="container top-strip-inner">
-          <span>Bright premium printing for USA, Canada and Europe-focused brands.</span>
+          <span>Vision X Print Works On Your Vision.</span>
           <span>Fast support for custom and bulk orders</span>
         </div>
       </div>
@@ -293,9 +330,26 @@ export default function Navbar() {
             <Link to="/bulk-order">Bulk</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
-            <Link to="/login">Sign in</Link>
+
+            {user ? (
+              <>
+                <Link to="/my-account">
+                  {user?.name ? `My Account (${user.name})` : "My Account"}
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="header-logout-btn"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link to="/login">Sign in</Link>
+            )}
+
             <Link to="/cart" className="header-cart">
-              Cart ({totalItems})
+              Cart ({cartCount})
             </Link>
           </nav>
         </div>

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -33,6 +33,13 @@ import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 
 import "./App.css";
 
+function ProtectedUserRoute({ children }) {
+  const user =
+    localStorage.getItem("visionx_user") || localStorage.getItem("userInfo");
+
+  return user ? children : <Navigate to="/login" replace />;
+}
+
 export default function App() {
   return (
     <Routes>
@@ -48,7 +55,14 @@ export default function App() {
       <Route path="/track-order" element={<TrackOrder />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/my-account" element={<MyAccount />} />
+      <Route
+        path="/my-account"
+        element={
+          <ProtectedUserRoute>
+            <MyAccount />
+          </ProtectedUserRoute>
+        }
+      />
       <Route path="/saved-designs" element={<SavedDesigns />} />
       <Route path="/bulk-order" element={<BulkOrder />} />
       <Route path="/contact" element={<Contact />} />
