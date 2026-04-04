@@ -29,6 +29,7 @@ import AdminCustomers from "./admin/AdminCustomers";
 import AdminCoupons from "./admin/AdminCoupons";
 import AdminSettings from "./admin/AdminSettings";
 
+import ScrollToTop from "./components/ScrollToTop";
 import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 
 import "./App.css";
@@ -42,86 +43,90 @@ function ProtectedUserRoute({ children }) {
 
 export default function App() {
   return (
-    <Routes>
-      {/* Main Pages */}
-      <Route path="/" element={<Home />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/category/:slug" element={<CategoryPage />} />
-      <Route path="/product/:slug" element={<ProductDetails />} />
-      <Route path="/design-studio" element={<DesignStudio />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/checkout" element={<Checkout />} />
-      <Route path="/order-success" element={<OrderSuccess />} />
-      <Route path="/track-order" element={<TrackOrder />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route
-        path="/my-account"
-        element={
-          <ProtectedUserRoute>
-            <MyAccount />
-          </ProtectedUserRoute>
-        }
-      />
-      <Route path="/saved-designs" element={<SavedDesigns />} />
-      <Route path="/bulk-order" element={<BulkOrder />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/faq" element={<FAQ />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/shipping-policy" element={<ShippingPolicy />} />
-      <Route path="/refund-policy" element={<RefundPolicy />} />
+    <>
+      <ScrollToTop />
 
-      {/* Admin Pages */}
-      <Route
-        path="/admin"
-        element={
-          <ProtectedAdminRoute>
-            <AdminDashboard />
-          </ProtectedAdminRoute>
-        }
-      />
-      <Route
-        path="/admin/products"
-        element={
-          <ProtectedAdminRoute>
-            <AdminProducts />
-          </ProtectedAdminRoute>
-        }
-      />
-      <Route
-        path="/admin/orders"
-        element={
-          <ProtectedAdminRoute>
-            <AdminOrders />
-          </ProtectedAdminRoute>
-        }
-      />
-      <Route
-        path="/admin/customers"
-        element={
-          <ProtectedAdminRoute>
-            <AdminCustomers />
-          </ProtectedAdminRoute>
-        }
-      />
-      <Route
-        path="/admin/coupons"
-        element={
-          <ProtectedAdminRoute>
-            <AdminCoupons />
-          </ProtectedAdminRoute>
-        }
-      />
-      <Route
-        path="/admin/settings"
-        element={
-          <ProtectedAdminRoute>
-            <AdminSettings />
-          </ProtectedAdminRoute>
-        }
-      />
-    </Routes>
+      <Routes>
+        {/* Main Pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/category/:slug" element={<CategoryPage />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
+        <Route path="/design-studio" element={<DesignStudio />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
+        <Route path="/track-order" element={<TrackOrder />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/my-account"
+          element={
+            <ProtectedUserRoute>
+              <MyAccount />
+            </ProtectedUserRoute>
+          }
+        />
+        <Route path="/saved-designs" element={<SavedDesigns />} />
+        <Route path="/bulk-order" element={<BulkOrder />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/shipping-policy" element={<ShippingPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+
+        {/* Admin Pages */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboard />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedAdminRoute>
+              <AdminProducts />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/orders"
+          element={
+            <ProtectedAdminRoute>
+              <AdminOrders />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/customers"
+          element={
+            <ProtectedAdminRoute>
+              <AdminCustomers />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/coupons"
+          element={
+            <ProtectedAdminRoute>
+              <AdminCoupons />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/settings"
+          element={
+            <ProtectedAdminRoute>
+              <AdminSettings />
+            </ProtectedAdminRoute>
+          }
+        />
+      </Routes>
+    </>
   );
 }

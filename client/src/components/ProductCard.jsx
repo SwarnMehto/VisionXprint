@@ -17,28 +17,48 @@ export default function ProductCard({ product }) {
   const productBadge = product.badge || "";
 
   return (
-    <div className="vx-product-card">
+    <article className="vx-product-card">
       <div className="vx-product-image-wrap">
         {productBadge && <span className="vx-product-badge">{productBadge}</span>}
-        <img src={productImage} alt={productName} className="vx-product-image" />
+
+        <Link
+          to={`/product/${productSlug}`}
+          className="vx-product-image-link"
+          aria-label={`View ${productName}`}
+        >
+          <img
+            src={productImage}
+            alt={productName}
+            className="vx-product-image"
+            loading="lazy"
+          />
+        </Link>
       </div>
 
       <div className="vx-product-content">
-        <p className="vx-product-category">{categoryText}</p>
-        <h3 className="vx-product-title">{productName}</h3>
+        <div className="vx-product-meta">
+          <p className="vx-product-category">{categoryText}</p>
+          <h3 className="vx-product-title">
+            <Link to={`/product/${productSlug}`} className="vx-product-title-link">
+              {productName}
+            </Link>
+          </h3>
+        </div>
+
         <p className="vx-product-desc">{productDescription}</p>
 
-        <div className="vx-product-footer">
-          <div>
-            <p className="vx-product-price-label">From</p>
+        <div className="vx-product-bottom">
+          <div className="vx-product-pricing">
+            <p className="vx-product-price-label">Starting from</p>
             <h4 className="vx-product-price">{formatCurrency(productPrice)}</h4>
           </div>
 
-          <Link to={`/product/${productSlug}`} className="btn btn-primary">
-            Customize
+          <Link to={`/product/${productSlug}`} className="vx-product-btn">
+            Customize Now
+            <span className="vx-product-btn-arrow">→</span>
           </Link>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

@@ -326,6 +326,7 @@ export default function Navbar() {
           </div>
 
           <nav className="header-nav">
+            <Link to="/">Home</Link>
             <Link to="/products">Products</Link>
             <Link to="/bulk-order">Bulk</Link>
             <Link to="/about">About</Link>
